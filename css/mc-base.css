@@ -1,0 +1,417 @@
+@charset "utf-8";
+
+body {
+    max-width: 1920px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+a{
+    display: inline-block;
+}
+
+/* 响应式内容区变化 */
+@media screen and (min-width: 1441px) {
+    .mc_container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .mc_container {
+        width: 950px;
+        margin: 0 auto;
+    }
+}
+
+
+@media screen and (max-width: 950px) {
+    .mc_container {
+        width: 768px;
+        padding: 0 20px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .mc_container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+
+    /* bshare手机端 */
+    .bsBox {
+        width: 255px !important;
+        margin: 0 !important;
+        transform: translate(-50%, -50%)
+    }
+
+    .bsTop {
+        width: 255px !important;
+    }
+
+    #bsMorePanel {
+        width: 255px !important;
+    }
+
+    .bFind-wrapper-top input {
+        width: unset !important;
+    }
+
+    #bsPanel {
+        display: none;
+    }
+
+    /* slick指示点 */
+    .slick-dots li {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* slick加载错乱调整 */
+.slick-slide:not(:first-child) {
+    display: none;
+}
+
+/* bshare 界面错乱调整 */
+.bsBox,
+#bsPanel div,
+#bsMorePanel div,
+#bshareF div {
+    box-sizing: content-box;
+}
+
+.bsTop span {
+    line-height: 24px !important;
+}
+
+/* b-share */
+.mc_sharebox {
+    margin: 0 10px;
+}
+
+.bshare-custom .mc_sharebox a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100% !important;
+    background: none !important;
+}
+
+/* 列表图片 */
+.mc_list_imgbox {
+    position: relative;
+}
+
+.mc_list_under {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.mc_list_img {
+    width: 100%;
+    height: 100%;
+    /* position: absolute; */
+    /* z-index: 2; */
+    /* top: 0; */
+    /* left: 0; */
+}
+
+
+
+/* hover换图 */
+.mc_xtbbox {
+    position: relative;
+}
+
+.mc_xtb_default{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    transition: all .36s;
+}
+
+.mc_xtb_active{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all .36s;
+    opacity: 0;
+}
+
+/* 两边截取 */
+.mc_lbjq {
+    overflow: hidden;
+}
+
+.mc_lbjq img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 背景图 */
+.mc_cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.mc_cover img,
+.mc_cover video {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-width: none;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/* 定位内容区 */
+.mc_pos_top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.mc_pos_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mc_pos_bot {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.mc_pos_right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%);
+}
+
+.mc_pos_cover{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.mc_pos_under{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+/* 小图标i标签 */
+.mc_icon {
+    display: inline-block;
+    vertical-align: middle;
+    background-position-x: center;
+    background-position-y: top;
+}
+
+/* 下拉选择 */
+.mc_select_hd {
+    cursor: pointer;
+}
+
+.mc_select_show {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.mc_select_xtb {
+    transition: all .36s;
+}
+
+.mc_select_xtbbox.on .mc_select_xtb {
+    transform: rotate(180deg);
+}
+
+.mc_select_bd {
+    display: none;
+}
+
+.mc_select_li {
+    cursor: pointer;
+}
+
+/* tab栏 */
+.mc_tabhd_li {
+    float: left;
+    cursor: pointer;
+    user-select: none;
+}
+
+.mc_tabhd_li.on {
+    color: #999;
+}
+
+.mc_tabbd_lisbox:not(:first-child) {
+    display: none;
+}
+
+/* 模态框 */
+.mc_modal_btn {
+    cursor: pointer;
+}
+
+.mc_modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+}
+
+.mc_modal_container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mc_modal_close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.mc_modal_content {
+    width: 500px;
+    padding: 20px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 80px);
+    overflow: auto;
+    background: #fff;
+}
+
+
+
+/* 快捷类 */
+.mc_show,
+.mc_block {
+    display: block;
+}
+
+.mc_hide {
+    display: none;
+}
+
+/* plaeceholder样式改变 */
+.input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #666;
+}
+
+.input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #666;
+}
+
+.input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #666;
+}
+
+.input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #666;
+}
+
+/* 载入效果 */
+.mc_anmt_in {
+    animation-delay: 0.3s;
+    animation-name: fadeIn;
+}
+
+.mc_anmt_l {
+    animation-delay: 0.3s;
+    animation-name: fadeInLeft;
+}
+
+.mc_anmt_r {
+    animation-delay: 0.3s;
+    animation-name: fadeInRight;
+}
+
+.mc_anmt1 {
+    animation-delay: 0.3s;
+    animation-name: fadeInUp;
+}
+
+.mc_anmt2 {
+    animation-delay: 0.5s;
+    animation-name: fadeInUp;
+}
+
+.mc_anmt3 {
+    animation-delay: 0.7s;
+    animation-name: fadeInUp;
+}
+
+.mc_anmt4 {
+    animation-delay: 0.9s;
+    animation-name: fadeInUp;
+}
+
+.mc_anmt5 {
+    animation-delay: 1.1s;
+    animation-name: fadeInUp;
+}
+
+.mc_anmt6 {
+    animation-delay: 1.3s;
+    animation-name: fadeInUp;
+}
