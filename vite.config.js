@@ -35,7 +35,7 @@ function htmlIncludes() {
 export default defineConfig({
   root: '.',
   publicDir: false,
-  plugins: [htmlIncludes(), copyStaticDir('js')],
+  plugins: [htmlIncludes(), copyStaticDir('js'), copyStaticDir('images')],
   build: {
     outDir: 'dist',
     emptyOutDir: true,

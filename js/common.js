@@ -1,6 +1,5 @@
 $(function () {
-    // wow初始化
-    new WOW().init();
+    initScrollReveal();
     // 手机导航下拉
     phMenu();
     //手机端视频不自动播放
@@ -9,6 +8,46 @@ $(function () {
     pcNav();
 })
 
+
+function initScrollReveal() {
+    var pending = Array.prototype.slice.call(document.querySelectorAll('.wow'));
+    if (!pending.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        pending.forEach(function (el) { el.classList.add('is-in'); });
+        return;
+    }
+
+    var scheduled = false;
+
+    function tick() {
+        var line = window.innerHeight * 0.92;
+        pending = pending.filter(function (el) {
+            if (el.getBoundingClientRect().top < line) {
+                el.classList.add('is-in');
+                return false;
+            }
+            return true;
+        });
+        if (!pending.length) {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+        }
+    }
+
+    function onScroll() {
+        if (scheduled) return;
+        scheduled = true;
+        requestAnimationFrame(function () {
+            scheduled = false;
+            tick();
+        });
+    }
+
+    tick();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+}
 
 // 手机导航下拉
 function phMenu() {
@@ -160,11 +199,36 @@ function yxtop() {
         })
     
         function asideShow() {
-            var top = $(".mc_main").offset().top - $(window).height() / 2 + $(".g2_piao").height() / 2;
+            var $bar = $(".g2_piao");
+            var $main = $(".mc_main");
+            if (!$bar.length || !$main.length) return;
+
+            var top = $main.offset().top - $(window).height() / 2 + $bar.outerHeight() / 2;
             if ($(window).scrollTop() > top) {
-                $(".g2_piao").addClass("he_add");
+                $bar.addClass("he_add");
             } else {
-                $(".g2_piao").removeClass("he_add");
+                $bar.removeClass("he_add");
+            }
+
+            var $footer = $(".ma_ft");
+            if (!$footer.length || !$bar.hasClass("he_add")) {
+                $bar.css({ top: "", transform: "", visibility: "" });
+                return;
+            }
+
+            var footerTop = $footer[0].getBoundingClientRect().top;
+            var barHeight = $bar.outerHeight();
+            var gap = 12;
+            var centeredTop = (window.innerHeight - barHeight) / 2;
+            if (footerTop < centeredTop + barHeight + gap) {
+                var nextTop = footerTop - barHeight - gap;
+                if (nextTop < 72) {
+                    $bar.css({ visibility: "hidden" });
+                } else {
+                    $bar.css({ top: nextTop + "px", transform: "none", visibility: "visible" });
+                }
+            } else {
+                $bar.css({ top: "", transform: "", visibility: "" });
             }
         }
     }

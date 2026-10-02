@@ -2632,9 +2632,17 @@ body {
 
 
 
+.mc_a1s1_li:nth-child(1) {
+
+    transform: translate(0, 75px);
+
+}
+
+
+
 .mc_a1s1_li:nth-child(2) {
 
-    transform: translate(-50px, 25px);
+    transform: translate(-50px, 50px);
 
     z-index: 2;
 
@@ -2644,7 +2652,7 @@ body {
 
 .mc_a1s1_li:nth-child(3) {
 
-    transform: translate(-100px, 50px);
+    transform: translate(-100px, 25px);
 
     z-index: 3;
 
@@ -2654,7 +2662,7 @@ body {
 
 .mc_a1s1_li:nth-child(4) {
 
-    transform: translate(-150px, 75px);
+    transform: translate(-150px, 0);
 
     z-index: 4;
 
@@ -4168,17 +4176,17 @@ margin-bottom: 160px;
 
 
 
-    .mc_a1s1_li:nth-child(3):hover {
+    .mc_a1s1_li:nth-child(1):hover {
 
-        margin-top: -50px;
+        margin-top: -75px;
 
     }
 
 
 
-    .mc_a1s1_li:nth-child(4):hover {
+    .mc_a1s1_li:nth-child(2):hover {
 
-        margin-top: -75px;
+        margin-top: -50px;
 
     }
 

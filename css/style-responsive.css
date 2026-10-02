@@ -10932,9 +10932,17 @@
 
 
 
+    .mc_a1s1_li:nth-child(1) {
+
+        transform: translate(0, 60px);
+
+    }
+
+
+
     .mc_a1s1_li:nth-child(2) {
 
-        transform: translate(-30px, 20px);
+        transform: translate(-30px, 40px);
 
     }
 
@@ -10942,7 +10950,7 @@
 
     .mc_a1s1_li:nth-child(3) {
 
-        transform: translate(-60px, 40px);
+        transform: translate(-60px, 20px);
 
     }
 
@@ -10950,7 +10958,7 @@
 
     .mc_a1s1_li:nth-child(4) {
 
-        transform: translate(-90px, 60px);
+        transform: translate(-90px, 0);
 
     }
 

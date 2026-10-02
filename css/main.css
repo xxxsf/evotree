@@ -1023,6 +1023,20 @@ html[lang="en"] .mc_a1s1_lititle {
         font-size: 14px;
     }
 
+    .fade-dots {
+        bottom: 12px;
+        gap: 7px;
+    }
+
+    .fade-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .fade-dot.active {
+        transform: scale(1.15);
+    }
+
     .mc_a1s1 .mc_cont1200 {
         padding: 0 16px;
         box-sizing: border-box;
@@ -1037,6 +1051,7 @@ html[lang="en"] .mc_a1s1_lititle {
     }
 
     .mc_a1s1_li,
+    .mc_a1s1_li:nth-child(1),
     .mc_a1s1_li:nth-child(2),
     .mc_a1s1_li:nth-child(3),
     .mc_a1s1_li:nth-child(4) {
@@ -1054,29 +1069,70 @@ html[lang="en"] .mc_a1s1_lititle {
 
     .mc_a1s1_lisbox {
         display: block;
+        position: relative;
         width: 100%;
+        height: auto;
+        aspect-ratio: auto;
         overflow: hidden;
+    }
+
+    .mc_a1s1_bg {
+        position: absolute;
+        inset: 0;
+        height: 100%;
     }
 
     .mc_a1s1_bg img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
         display: block;
     }
 
     .mc_a1s1_liscont {
-        padding: 24px 20px 28px;
+        position: relative;
+        height: auto;
+        padding: 16px 16px 14px;
     }
 
-    .mc_a1s1_lititle {
+    .mc_a1s1_liswrap {
         height: auto;
-        line-height: 1.4;
+    }
+
+    .mc_a1s1_lititle,
+    html[lang="en"] .mc_a1s1_lititle {
+        height: auto;
+        min-height: 0;
+        margin: 0 0 8px;
+        padding: 0 0 8px;
+        font-size: 18px;
+        line-height: 1.3;
         white-space: nowrap;
         overflow: visible;
     }
 
+    .mc_a1s1_txt,
+    .mc_a1s1_txt p {
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
     .mc_a1s1_txt {
         max-height: none;
+    }
+
+    .mc_a1s1_txt p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .mc_a1s1_xtb {
+        position: static;
+        display: block;
+        width: 36px;
+        margin-top: 10px;
     }
 
     .ma_ftt_navrow {
@@ -1198,6 +1254,105 @@ html[lang="en"] .mc_a1s1_lititle {
         left: auto;
         right: 12px;
     }
+
+    .mc_ph_hd {
+        z-index: 2000;
+        background-color: #fff;
+    }
+
+    .mc_a1s4 {
+        padding: 28px 0 20px;
+        margin-bottom: 0;
+    }
+
+    .mc_a1s4 .mc_cont1200 {
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    .mc_a1s4_title {
+        margin-bottom: 12px;
+        font-size: 22px;
+    }
+
+    .mc_a1s4_txt {
+        padding: 4px 4px 0;
+    }
+
+    .mc_a1s4_txt::before,
+    .mc_a1s4_txt::after {
+        display: none;
+    }
+
+    .mc_a1s4_txt p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .mc_a1s4_slick {
+        padding-bottom: 4px;
+    }
+
+    .mc_a1s4 .slick-slide {
+        z-index: 1 !important;
+    }
+
+    .mc_a1s4_partner {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        z-index: 1;
+        width: 100%;
+        margin: 18px 0 0;
+        transform: none;
+    }
+
+    .mc_a1s4p_cont {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .marquee-item {
+        min-width: 120px;
+        height: 108px;
+        padding: 10px 12px 4px;
+    }
+
+    .mc_a1s4p_imgbox {
+        width: 108px;
+        font-size: 13px;
+    }
+
+    .mc_a1s4p_imgbox .mc_list_img {
+        width: 100px;
+        height: 68px;
+    }
+
+    .mc_a1s4p_text {
+        font-size: 13px;
+        padding-top: 6px;
+    }
+
+    .ma_ftt1a1 {
+        width: 132px;
+    }
+
+    .ma_ftt1a1 img {
+        display: block;
+        width: 132px;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .mc_ft_copyright p,
+    .mc_ft_copyright p a {
+        font-size: 12px;
+        line-height: 1.6;
+    }
 }
 
 .mc_navpro_imgbox.mc_list_imgbox {
@@ -1217,4 +1372,85 @@ html[lang="en"] .mc_a1s1_lititle {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.wow {
+    animation: none;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Cards keep the staircase translate from style.css.
+   Opacity is the scroll reveal; margin-top is the hover lift. */
+.mc_a1s1_li.wow {
+    transition: opacity 0.7s ease, margin-top 0.36s ease-out;
+}
+
+.mc_a1s2_dotsbox.wow {
+    transform: none;
+}
+
+/* Partner marquee hangs halfway below the teal block. */
+@media screen and (min-width: 951px) {
+    .mc_a1s4_partner.wow,
+    .mc_a1s4_partner.wow.is-in {
+        transform: translateY(50%);
+        transition: opacity 0.7s ease;
+    }
+}
+
+/* Narrow desktop padding was shorter than the hanging marquee. */
+@media screen and (min-width: 951px) and (max-width: 1200px) {
+    .mc_a1s4 {
+        padding-bottom: 130px;
+    }
+}
+
+/* Narrower desktops shrink the section padding below the marquee overlap. */
+@media screen and (min-width: 951px) and (max-width: 1200px) {
+    .mc_a1s4 {
+        padding-bottom: 130px;
+    }
+}
+
+.wow.is-in:not(.mc_a1s1_li):not(.mc_a1s4_partner) {
+    opacity: 1;
+    transform: none;
+}
+
+.mc_a1s1_li.wow.is-in,
+.mc_a1s4_partner.wow.is-in {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wow:not(.mc_a1s1_li):not(.mc_a1s4_partner) {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .mc_a1s1_li.wow {
+        opacity: 1;
+        transition: none;
+    }
+
+    .mc_a1s4_partner.wow {
+        opacity: 1;
+        transition: none;
+    }
+}
+
+@media screen and (min-width: 951px) and (prefers-reduced-motion: reduce) {
+    .mc_a1s4_partner.wow {
+        transform: translateY(50%);
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .mc_a1s4_partner.wow,
+    .mc_a1s4_partner.wow.is-in {
+        transform: none;
+    }
 }
